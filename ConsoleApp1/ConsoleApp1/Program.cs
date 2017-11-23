@@ -15,11 +15,21 @@ namespace ConsoleApp1
             //上面這行改為底下這樣
             BMIProcessor BMI = PolicyInjection.Create<BMIProcessor>();
             //其餘程式碼完全不變
-            BMI.Height = 0         ;
-            BMI.Weight = 0;
+            BMI.Height = 170;
+            BMI.Weight = 70;
 
             //計算BMI
             var ret = BMI.Calculate();
+
+            Console.WriteLine($"\nBMI : {ret}");
+            Console.ReadKey();
+
+            //測試exception
+            BMI.Height = 0;
+            BMI.Weight = 0;
+
+            //計算BMI
+            ret = BMI.Calculate();
 
             Console.WriteLine($"\nBMI : {ret}");
             Console.ReadKey();
